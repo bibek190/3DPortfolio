@@ -5,6 +5,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import styled from "styled-components";
+import Works from "./components/Works";
 
 const Container = styled.div`
   height: 100vh;
@@ -19,6 +20,7 @@ const Container = styled.div`
     rgba(33, 24, 56, 1) 40%
   );
   scrollbar-width: none;
+  font-family: "Roboto", sans-serif;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -29,9 +31,10 @@ const App = () => {
     <Container>
       <Home />
       <About />
+      <Works />
+      <Contact />
       <Projects />
       <Skills />
-      <Contact />
     </Container>
   );
 };
