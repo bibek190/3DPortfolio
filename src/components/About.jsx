@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Test from "./Test";
 
 const Section = styled.div`
   height: 100vh;
@@ -41,6 +42,11 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 15px;
   cursor: pointer;
+
+  &:active {
+    background-color: #85e2ee;
+    transform: scale(0.95);
+  }
 `;
 
 // right
@@ -56,7 +62,9 @@ const About = () => {
   return (
     <Section>
       <Container>
-        <Left></Left>
+        <Left>
+          <Test />
+        </Left>
         <Right>
           <Title>About Me</Title>
           <Who>

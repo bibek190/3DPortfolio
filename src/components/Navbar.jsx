@@ -51,6 +51,10 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  &:active {
+    background-color: #85e2ee;
+    transform: scale(0.95);
+  }
 `;
 
 const Navbar = () => {

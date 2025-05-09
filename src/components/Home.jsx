@@ -48,6 +48,10 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 15px;
   cursor: pointer;
+  &:active {
+    background-color: #85e2ee;
+    transform: scale(0.95);
+  }
 `;
 
 // right

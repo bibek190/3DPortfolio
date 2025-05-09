@@ -6,6 +6,8 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import styled from "styled-components";
 import Works from "./components/Works";
+import { toast, ToastContainer } from "react-toastify";
+import Test from "./components/Test";
 
 const Container = styled.div`
   height: 100vh;
@@ -13,7 +15,6 @@ const Container = styled.div`
   scroll-behavior: smooth;
   overflow-y: auto;
   color: #ffffff;
-  background: #9e8d90;
   background: linear-gradient(
     330deg,
     rgba(33, 23, 28, 1) 0%,
@@ -33,8 +34,8 @@ const App = () => {
       <About />
       <Works />
       <Contact />
-      <Projects />
-      <Skills />
+      <Test />
+      <ToastContainer theme="dark" />
     </Container>
   );
 };
