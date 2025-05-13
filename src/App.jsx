@@ -1,13 +1,17 @@
 import React from "react";
-import Home from "./components/Home";
 import About from "./components/About";
-import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import styled from "styled-components";
 import Works from "./components/Works";
 import { toast, ToastContainer } from "react-toastify";
 import Test from "./components/Test";
+import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Layout from "./components/Wrapper";
+import Home from "./components/Home";
 
 const Container = styled.div`
   height: 100vh;
@@ -15,10 +19,22 @@ const Container = styled.div`
   scroll-behavior: smooth;
   overflow-y: auto;
   color: #ffffff;
-  background: linear-gradient(
-    330deg,
-    rgba(33, 23, 28, 1) 0%,
-    rgba(33, 24, 56, 1) 40%
+  background: #5e6c75;
+  background: #0d181c;
+  background-image: linear-gradient(
+    to right top,
+    #0e0d0e,
+    #221b26,
+    #332840,
+    #3f385d,
+    #45497d,
+    #3f4b80,
+    #384e83,
+    #2f5086,
+    #27426c,
+    #203452,
+    #19263a,
+    #131923
   );
   scrollbar-width: none;
   font-family: "Roboto", sans-serif;
@@ -29,14 +45,61 @@ const Container = styled.div`
 
 const App = () => {
   return (
-    <Container>
-      <Home />
-      <About />
-      <Works />
-      <Contact />
-      <Test />
-      <ToastContainer theme="dark" />
-    </Container>
+    <BrowserRouter>
+      <Container>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path="/hero"
+            element={
+              <Layout>
+                <Hero />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="myprojects"
+            element={
+              <Layout>
+                <Works />
+              </Layout>
+            }
+          />
+          <Route
+            path="/skills"
+            element={
+              <Layout>
+                <Skills />
+              </Layout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Layout>
+                <Contact />
+              </Layout>
+            }
+          />
+        </Routes>
+        <ToastContainer theme="dark" />
+      </Container>
+    </BrowserRouter>
   );
 };
 

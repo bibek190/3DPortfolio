@@ -15,9 +15,9 @@ import { Perf } from "r3f-perf";
 const Test = () => {
   return (
     <>
-      <Canvas dpr={[1, 1.5]}>
+      <Canvas>
         <Suspense>
-          <OrbitControls />
+          <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[1, 1, 1]} intensity={1} />
           <Cube />

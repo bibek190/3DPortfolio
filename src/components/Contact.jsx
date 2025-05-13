@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { Canvas } from "@react-three/fiber";
+import ContactModel from "./ContactModel";
+import { Html } from "@react-three/drei";
 
 const Section = styled.div`
   height: 100vh;
@@ -11,14 +14,16 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-between;
   gap: 50px;
+  position: relative;
+  padding-bottom: 100px;
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  position: relative;
+  margin-left: 200px;
 `;
 const Title = styled.h1`
   font-weight: 200;
@@ -28,6 +33,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 25px;
+  z-index: 1;
 `;
 const Input = styled.input`
   padding: 10px;
@@ -58,6 +64,11 @@ const Button = styled.button`
 `;
 const Right = styled.div`
   flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 const Contact = () => {
@@ -102,7 +113,13 @@ const Contact = () => {
             <Button type="submit">Send</Button>
           </Form>
         </Left>
-        <Right>{/* THREEJS */}</Right>
+        <Right>
+          <Suspense>
+            <Canvas camera={{ fov: 70, near: 0.1, far: 200 }}>
+              <ContactModel />
+            </Canvas>
+          </Suspense>
+        </Right>
       </Container>
     </Section>
   );
