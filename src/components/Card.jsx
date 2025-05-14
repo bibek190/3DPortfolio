@@ -16,10 +16,18 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 600px;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 const Img = styled.img`
-  height: 300px;
-  border-radius: 5px 5px 0 0;
+  height: 400px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
   object-fit: cover;
 `;
 
@@ -36,6 +44,10 @@ const ButtonWrapper = styled.div`
   justify-content: space-around;
   gap: 5px;
   padding: 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 10px;
+  }
 `;
 const Button = styled.a`
   text-decoration: none;
@@ -47,6 +59,12 @@ const Button = styled.a`
   transition: background-color 0.2s;
   &:hover {
     background-color: #85e2ee;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
 `;
 
 const ProjectCard = ({ name, img, link, repo }) => {

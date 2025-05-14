@@ -10,12 +10,7 @@ import {
   useHelper,
   useTexture,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { useControls } from "leva";
 import React, { useContext, useRef, useState } from "react";
-import { CapsuleGeometry, MeshBasicMaterial } from "three";
-import * as THREE from "three";
 
 const SphereWobble = () => {
   const [shapeIndex, setShapeIndex] = useState(1);
@@ -34,7 +29,7 @@ const SphereWobble = () => {
 
   return (
     <>
-      <Sparkles count={200} size={2} scale={4} color={"white"} />
+      <Sparkles count={100} size={3} scale={5} color={"#a19995"} />
       <OrbitControls enableZoom={false} autoRotate speed={8} />
       <ambientLight intensity={0.2} />
       <directionalLight position={[-1, -5, -2]} intensity={0.8} />

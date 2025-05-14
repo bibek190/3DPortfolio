@@ -112,7 +112,7 @@ const Hamburger = styled.div`
   display: none;
   i {
     margin-right: 20px;
-    font-size: 40px;
+    font-size: 35px;
   }
 
   @media (max-width: 768px) {
@@ -137,6 +137,9 @@ const Navbar = () => {
         </Links>
 
         <List className={showNavbar ? "show" : ""}>
+          <ListItem>
+            <Link to="/">Home </Link>
+          </ListItem>
           <ListItem>
             <Link to="/about">About </Link>
           </ListItem>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Test from "./Test";
+import { Link } from "react-router-dom";
 
 const Section = styled.div`
   height: 100vh;
@@ -15,14 +16,29 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 100px;
+
+  @media (max-width: 768px) {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 10px;
+  }
 `;
 // left
 const Left = styled.div`
   flex: 1;
+
+  @media (max-width: 768px) {
+    flex: 1;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 60px;
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 const Job = styled.h2`
   font-size: 60px;
@@ -31,6 +47,17 @@ const Job = styled.h2`
 const Who = styled.p`
   font-size: 20px;
   color: lightgrey;
+
+  @media (max-width: 768px) {
+    background-color: red;
+    padding: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: start;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
 `;
 
 const Button = styled.button`
@@ -57,6 +84,12 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    align-items: center;
+    margin-bottom: 200px;
+  }
 `;
 
 const About = () => {
@@ -76,7 +109,9 @@ const About = () => {
             skills, and building things that make the web better.I aim to
             deliver clean, maintainable code that users—and teams—love.
           </Who>
-          <Button>My Works </Button>
+          <Link to="/myprojects">
+            <Button>My Works </Button>
+          </Link>
         </Right>
       </Container>
     </Section>

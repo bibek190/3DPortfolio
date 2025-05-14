@@ -8,7 +8,7 @@ import {
 import React, { useEffect } from "react";
 
 const ContactModel = () => {
-  const model = useGLTF("./buster_drone/scene.gltf");
+  const model = useGLTF("/buster_drone/scene.gltf");
   const animations = useAnimations(model.animations, model.scene);
 
   useEffect(() => {

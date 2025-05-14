@@ -52,12 +52,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: Column;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 15px;
+  }
 `;
 const Top = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex: 0.5;
+    display: flex;
+  }
 `;
 const Title = styled.h1`
   font-size: 40px;
@@ -98,6 +110,22 @@ const Works = () => {
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={100}
+                centeredSlides={true}
+                loop={true}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 50,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 100,
+                  },
+                }}
                 slidesPerView={3}
                 navigation
                 pagination={{ clickable: true }}

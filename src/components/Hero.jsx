@@ -9,12 +9,23 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
 `;
 const Container = styled.div`
   height: 100vh;
   width: 1200px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    height: 100%;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 0 15px;
+  }
 `;
 // left
 const Left = styled.div`
@@ -24,14 +35,26 @@ const Left = styled.div`
   justify-content: center;
   gap: 20px;
   padding-bottom: 100px;
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 60px;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 const Job = styled.h2`
   font-size: 60px;
   color: #1dacc2;
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 const Who = styled.p`
   font-size: 20px;
