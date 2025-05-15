@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import { Canvas } from "@react-three/fiber";
@@ -17,16 +17,33 @@ const Container = styled.div`
   gap: 50px;
   position: relative;
   padding-bottom: 100px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: 200px;
+  top: -20px;
+  left: 200px;
+  @media (max-width: 768px) {
+    width: 100%;
+    /* background-color: #486986; */
+    left: 0;
+    justify-content: center;
+    top: 0;
+    align-items: start;
+  }
 `;
 const Title = styled.h1`
   font-weight: 200;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 const Form = styled.form`
   width: 400px;
@@ -38,7 +55,6 @@ const Form = styled.form`
 const Input = styled.input`
   padding: 10px;
   background-color: transparent;
-  opacity: 0.5;
   color: white;
   font-size: 15px;
   border-radius: 5px;
@@ -46,7 +62,6 @@ const Input = styled.input`
 `;
 const TextArea = styled.textarea`
   background-color: transparent;
-  opacity: 0.5;
   color: white;
   font-size: 15px;
   border-radius: 5px;
@@ -69,11 +84,26 @@ const Right = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 768px) {
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Contact = () => {
   const ref = useRef();
   const [success, setSuccess] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -115,8 +145,15 @@ const Contact = () => {
         </Left>
         <Right>
           <Suspense>
-            <Canvas camera={{ fov: 70, near: 0.1, far: 200 }}>
-              <ContactModel />
+            <Canvas
+              camera={{
+                position: isMobile ? [0, 0, 5] : [0, 0, 6],
+                fov: 70,
+                near: 0.1,
+                far: 200,
+              }}
+            >
+              <ContactModel isMobile={isMobile} />
             </Canvas>
           </Suspense>
         </Right>

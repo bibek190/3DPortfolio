@@ -45,7 +45,6 @@ const List = styled.ul`
     flex-direction: column;
     /* justify-content: space-between; */
     width: 100%;
-    height: 60%;
     position: absolute;
     top: 0;
     left: 0;
@@ -112,7 +111,7 @@ const Hamburger = styled.div`
   display: none;
   i {
     margin-right: 20px;
-    font-size: 35px;
+    font-size: 30px;
   }
 
   @media (max-width: 768px) {

@@ -19,6 +19,7 @@ const Container = styled.div`
   width: 1200px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 100px;
 
   @media (max-width: 768px) {
     height: 100%;

@@ -7,9 +7,7 @@ const Wrapper = styled.div`
   height: 100vh;
   padding-bottom: 200px;
 `;
-const Childrens = styled.div`
-  padding-top: -200px;
-`;
+const Childrens = styled.div``;
 
 const Layout = ({ children }) => {
   return (

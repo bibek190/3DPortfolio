@@ -7,7 +7,7 @@ import {
 } from "@react-three/drei";
 import React, { useEffect } from "react";
 
-const ContactModel = () => {
+const ContactModel = ({ isMobile }) => {
   const model = useGLTF("/buster_drone/scene.gltf");
   const animations = useAnimations(model.animations, model.scene);
 
@@ -24,7 +24,11 @@ const ContactModel = () => {
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 4}
       />
-      <primitive object={model.scene} scale={2} position={[2, 0.5, 0]} />
+      <primitive
+        object={model.scene}
+        scale={2}
+        position={isMobile ? [0, 0, -2] : [2, 0.5, 0]}
+      />
 
       <ContactShadows position-y={-1.14} opacity={0.5} blur={1.4} />
     </>
