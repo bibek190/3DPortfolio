@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Footer from "./Footer";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding-bottom: 200px;
 `;
 const Childrens = styled.div``;

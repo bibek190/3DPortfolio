@@ -19,7 +19,7 @@ const Container = styled.div`
   scroll-behavior: smooth;
   overflow-y: auto;
   color: #ffffff;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #5e6c75;
   background: #0d181c;
   background-image: linear-gradient(
