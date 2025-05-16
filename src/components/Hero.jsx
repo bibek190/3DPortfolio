@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import SphereWobble from "./SphereWobble";
 import { Canvas } from "@react-three/fiber";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const Section = styled.div`
@@ -94,13 +95,10 @@ const Right = styled.div`
 `;
 
 const Hero = () => {
-  const leftRef = useRef();
-  const rightRef = useRef();
-
   return (
     <Section>
       <Container>
-        <Left ref={leftRef}>
+        <Left>
           <Title>
             Hello,
             <br />
@@ -121,7 +119,7 @@ const Hero = () => {
             </Button>
           </Downloadable>
         </Left>
-        <Right ref={rightRef}>
+        <Right>
           <Canvas dpr={[1, 1.5]}>
             <SphereWobble />
           </Canvas>

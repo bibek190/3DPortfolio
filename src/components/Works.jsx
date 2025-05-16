@@ -41,8 +41,7 @@ const projects = [
 ];
 
 const Section = styled.div`
-  width: 100vw;
-  /* scroll-snap-align: start; */
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;

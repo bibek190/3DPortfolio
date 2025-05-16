@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Test from "./Test";
 import { Link } from "react-router-dom";
 
 const Section = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,6 +88,7 @@ const Right = styled.div`
     flex: 1;
     align-items: center;
     margin-bottom: 200px;
+    min-width: 300px;
   }
 `;
 
