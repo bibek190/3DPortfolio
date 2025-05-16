@@ -8,7 +8,6 @@ import { Html } from "@react-three/drei";
 
 const Section = styled.div`
   height: 100vh;
-  scroll-snap-align: start;
 `;
 const Container = styled.div`
   width: 100%;
@@ -142,18 +141,18 @@ const Contact = () => {
           </Form>
         </Left>
         <Right>
-          <Suspense>
-            <Canvas
-              camera={{
-                position: isMobile ? [0, 0, 5] : [0, 0, 6],
-                fov: 70,
-                near: 0.1,
-                far: 200,
-              }}
-            >
+          <Canvas
+            camera={{
+              position: isMobile ? [0, 0, 5] : [0, 0, 6],
+              fov: 70,
+              near: 0.1,
+              far: 200,
+            }}
+          >
+            <Suspense>
               <ContactModel isMobile={isMobile} />
-            </Canvas>
-          </Suspense>
+            </Suspense>
+          </Canvas>
         </Right>
       </Container>
     </Section>

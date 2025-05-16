@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { set } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Section = styled.div`
   display: flex;
   justify-content: center;
-  scroll-snap-align: start;
   padding: 0 10px;
+
+  @media (max-width: 768px) {
+  }
 `;
+
 const Container = styled.div`
   width: 1200px;
   display: flex;
@@ -118,12 +120,28 @@ const Hamburger = styled.div`
     display: block;
   }
 `;
+const Cross = styled.div`
+  z-index: 3;
+  display: none;
+  i {
+    margin-right: 20px;
+    font-size: 30px;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleNav = () => {
     setShowNavbar((prev) => !prev);
+  };
+
+  const closeNavbar = () => {
+    setShowNavbar(false);
   };
 
   return (
@@ -137,19 +155,29 @@ const Navbar = () => {
 
         <List className={showNavbar ? "show" : ""}>
           <ListItem>
-            <Link to="/">Home </Link>
+            <Link to="/" onClick={closeNavbar}>
+              Home{" "}
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="/about">About </Link>
+            <Link to="/about" onClick={closeNavbar}>
+              About{" "}
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="/myprojects">Projects</Link>
+            <Link to="/myprojects" onClick={closeNavbar}>
+              Projects
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="/skills">Skills</Link>
+            <Link to="/skills" onClick={closeNavbar}>
+              Skills
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={closeNavbar}>
+              Contact
+            </Link>
           </ListItem>
         </List>
         <Icons>
@@ -158,9 +186,15 @@ const Navbar = () => {
           </Link>
         </Icons>
 
-        <Hamburger onClick={handleNav}>
-          <i className="fa-solid fa-bars"></i>
-        </Hamburger>
+        {showNavbar ? (
+          <Cross onClick={handleNav}>
+            <i className="fa-solid fa-xmark" style={{ color: "#ffffff" }}></i>
+          </Cross>
+        ) : (
+          <Hamburger onClick={handleNav}>
+            <i className="fa-solid fa-bars"></i>
+          </Hamburger>
+        )}
       </Container>
     </Section>
   );

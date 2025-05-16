@@ -6,7 +6,6 @@ const Section = styled.div`
   height: 150px;
   width: 100vw;
   color: aliceblue;
-  scroll-snap-align: start;
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.1);

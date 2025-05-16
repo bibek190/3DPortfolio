@@ -12,12 +12,14 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Layout from "./components/Wrapper";
 import Home from "./components/Home";
+import Error from "./components/Error";
 
 const Container = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: auto;
+  overflow-x: hidden;
   color: #ffffff;
   background: #5e6c75;
   background: #0d181c;
@@ -96,6 +98,7 @@ const App = () => {
               </Layout>
             }
           />
+          <Route path="*" element={<Error />} />
         </Routes>
         <ToastContainer theme="dark" />
       </Container>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import SphereWobble from "./SphereWobble";
 import { Canvas } from "@react-three/fiber";
+import gsap from "gsap";
 
 const Section = styled.div`
   height: 100vh;
@@ -62,7 +63,15 @@ const Who = styled.p`
   color: lightgrey;
 `;
 
+const Downloadable = styled.a`
+  text-decoration: none;
+`;
+
 const Button = styled.button`
+  font-weight: 600;
+  display: flex;
+  gap: 4px;
+  text-align: center;
   font-weight: 500;
   background-color: #1dacc2;
   color: #ffffff;
@@ -85,10 +94,13 @@ const Right = styled.div`
 `;
 
 const Hero = () => {
+  const leftRef = useRef();
+  const rightRef = useRef();
+
   return (
     <Section>
       <Container>
-        <Left>
+        <Left ref={leftRef}>
           <Title>
             Hello,
             <br />
@@ -99,10 +111,18 @@ const Hero = () => {
             I am passionate for translating creative ideas into captivating
             digital experience.
           </Who>
-          <Button>Learn More</Button>
+          <Downloadable href="/resume.pdf" download>
+            <Button>
+              Resume
+              <i
+                className="fa-solid fa-arrow-down"
+                style={{ color: "#ffffff" }}
+              ></i>
+            </Button>
+          </Downloadable>
         </Left>
-        <Right>
-          <Canvas>
+        <Right ref={rightRef}>
+          <Canvas dpr={[1, 1.5]}>
             <SphereWobble />
           </Canvas>
         </Right>
