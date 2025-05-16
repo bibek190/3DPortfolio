@@ -7,9 +7,10 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 200px;
 `;
-const Childrens = styled.div``;
+const Childrens = styled.div`
+  flex: 1;
+`;
 
 const Layout = ({ children }) => {
   return (

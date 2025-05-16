@@ -16,7 +16,6 @@ const Container = styled.div`
   display: flex;
   gap: 50px;
   position: relative;
-  padding-bottom: 100px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -31,7 +30,6 @@ const Left = styled.div`
   left: 200px;
   @media (max-width: 768px) {
     width: 100%;
-    /* background-color: #486986; */
     left: 0;
     justify-content: center;
     top: 0;

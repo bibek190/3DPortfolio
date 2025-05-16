@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Section = styled.div`
-  height: 200px;
+  height: 150px;
   width: 100vw;
   color: aliceblue;
   scroll-snap-align: start;
