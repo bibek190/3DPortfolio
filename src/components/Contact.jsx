@@ -60,6 +60,7 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   background-color: transparent;
   color: white;
+  border: 1px solid white;
   font-size: 15px;
   border-radius: 5px;
   padding: 10px;
