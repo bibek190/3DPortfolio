@@ -2,6 +2,10 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import Test from "./Test";
 import { Link } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.div`
   min-height: 100vh;
@@ -93,13 +97,30 @@ const Right = styled.div`
 `;
 
 const About = () => {
+  // gsap
+  const aboutRef = useRef();
+  const aboutRightRef = useRef();
+
+  useGSAP(() => {
+    gsap.from(aboutRightRef.current, {
+      y: 200,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        scroller: "#scroll-container",
+        start: "top center",
+      },
+    });
+  });
+  // gsap
   return (
-    <Section>
+    <Section ref={aboutRef}>
       <Container>
         <Left>
           <Test />
         </Left>
-        <Right>
+        <Right ref={aboutRightRef}>
           <Title>About Me</Title>
           <Who>
             I'm a frontend developer with a passion for crafting clean,

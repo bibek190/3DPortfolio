@@ -95,10 +95,22 @@ const Right = styled.div`
 `;
 
 const Hero = () => {
+  // gsap
+  const leftRef = useRef();
+
+  useGSAP(() => {
+    gsap.from(leftRef.current, {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+    });
+  });
+  // gsap
+
   return (
     <Section>
       <Container>
-        <Left>
+        <Left ref={leftRef}>
           <Title>
             Hello,
             <br />

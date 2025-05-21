@@ -13,6 +13,10 @@ import Hero from "./components/Hero";
 import Layout from "./components/Wrapper";
 import Home from "./components/Home";
 import Error from "./components/Error";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.div`
   height: 100vh;
@@ -48,7 +52,7 @@ const Container = styled.div`
 const App = () => {
   return (
     <BrowserRouter>
-      <Container>
+      <Container id="scroll-container">
         <Routes>
           <Route
             path="/"
