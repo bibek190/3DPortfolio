@@ -47,7 +47,6 @@ const List = styled.ul`
     display: flex;
 
     flex-direction: column;
-    /* justify-content: space-between; */
     width: 100%;
     position: absolute;
     top: 0;
@@ -145,6 +144,19 @@ const Navbar = () => {
   const closeNavbar = () => {
     setShowNavbar(false);
   };
+  // gsap
+  const listRef = useRef();
+
+  useGSAP(() => {
+    if (showNavbar) {
+      gsap.from(listRef.current, {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }
+  }, [showNavbar]);
 
   return (
     <Section>
@@ -155,15 +167,15 @@ const Navbar = () => {
           </Link>
         </Links>
 
-        <List className={showNavbar ? "show" : ""}>
+        <List ref={listRef} className={showNavbar ? "show" : ""}>
           <ListItem>
             <Link to="/" onClick={closeNavbar}>
-              Home{" "}
+              Home
             </Link>
           </ListItem>
           <ListItem>
             <Link to="/about" onClick={closeNavbar}>
-              About{" "}
+              About
             </Link>
           </ListItem>
           <ListItem>
